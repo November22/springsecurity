@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 @Configuration
-//@MapperScan  扫描mapper包
+@MapperScan("mapper")  //扫描mapper包
 public class MyBatisConfig {
 
 	/**
