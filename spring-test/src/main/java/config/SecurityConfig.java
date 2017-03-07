@@ -79,10 +79,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		//###########一些简单的路径拦截配置#############
 		http
 			.authorizeRequests()
-				.antMatchers("/").anonymous()
+				.antMatchers("/").permitAll()
 				.antMatchers("/view").hasAuthority("wahaha")//需要制定的权限才能访问
 					.and()
-				.formLogin()
+				.formLogin().loginPage("/toLogin").loginProcessingUrl("/login")
 					.and()
 				.httpBasic();
 	}
