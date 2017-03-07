@@ -13,6 +13,7 @@
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		账户：<input type="text" name="username">
 		密码：<input type="password" name="password">
+		记住我：<input type="checkbox" name="remember-me"/>
 		<input type="submit" value="登录" />
 	</form>
 </body>
