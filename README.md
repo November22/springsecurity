@@ -1,0 +1,1 @@
+这是一个关于spring security的demo，使用的加载java配置类的方式实现的
