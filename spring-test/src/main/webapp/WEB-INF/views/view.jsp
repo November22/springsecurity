@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>视图页面</h1>
+	<!-- Filter会自动拦截针对logout的请求，默认跳转到登录页面，当期然可以自己设置退出后显示的页面 -->
+	<a href="/spring-test/logout">退出</a>
 </body>
 </html>
