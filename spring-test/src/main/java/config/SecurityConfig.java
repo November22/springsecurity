@@ -67,14 +67,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		//#########对所有请求拦截##########
 		//如果什么配置都没有，默认是如下配置,就是super.configure(http);
-		http
+		/*http
 			.authorizeRequests()
 				.anyRequest().authenticated()  //要求所有进入应用http请求都要进行认证
 				.and()
 			.formLogin().and()  //基于表单登录
-			.httpBasic();    //HTTP Basic方式认证
+			.httpBasic(); */   //HTTP Basic方式认证,就是用户名密码认证
 		
+		//###########一些简单的路径拦截配置#############
+		http
+			.authorizeRequests()
+				.antMatchers("/").anonymous()
+				.antMatchers("/view").hasAuthority("wahaha")//需要制定的权限才能访问
+					.and()
+				.formLogin()
+					.and()
+				.httpBasic();
 	}
 	
 	/**
