@@ -4,11 +4,14 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+import utils.MyPasswordEncoder;
 /**
  * 
  * @author 黄森 
@@ -42,7 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.jdbcAuthentication()
 			.dataSource(dataSource)
 				.usersByUsernameQuery(usersByUsernameQuery)
-				.authoritiesByUsernameQuery(authorities);
+				.authoritiesByUsernameQuery(authorities)
+				.passwordEncoder(new MyPasswordEncoder());
 	}
 	
 	/**
