@@ -49,6 +49,7 @@ public class MyUserDetailsService implements UserDetailsService{
 			//使用spring security提供的user对象，直接返回null
 			return userDetails;
 		}
+		
 		List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
 		for (Role role : roles) {
 			list.add(new SimpleGrantedAuthority(role.getrName()));

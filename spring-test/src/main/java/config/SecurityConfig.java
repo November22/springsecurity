@@ -80,7 +80,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/view").hasAuthority("wahaha")//需要制定的权限才能访问
+//				.antMatchers("/view").hasAuthority("wahaha")//需要制定的权限才能访问
+//				.antMatchers("/view").hasRole("iths") //这里不用 ROLE_ 作为开头，但是数据库中存储的数据必须以 ROLE_
+				.antMatchers("/toLogin").permitAll()
+				.anyRequest().authenticated()
 					.and()
 				.formLogin().loginPage("/toLogin").loginProcessingUrl("/login")
 					.and()
