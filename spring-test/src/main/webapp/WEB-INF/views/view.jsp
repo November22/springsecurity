@@ -12,8 +12,16 @@
 	<h1>视图页面</h1>
 	<p>
 		principal包含的值：<security:authentication property="principal" /> 
+		principal包含的值：<security:authentication property="principal.username" /> 
+		principal包含的值：<security:authentication property="principal.uid" /> 
+	</p>
+	<p>
 		details包含的值：<security:authentication property="details" /> 
+	</p>
+	<p>
 		Credentials的值：<security:authentication property="Credentials" /> 
+	</p>
+	<p>
 		authorities的值：<security:authentication property="authorities" /> 
 	</p>
 	

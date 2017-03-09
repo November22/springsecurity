@@ -33,7 +33,7 @@ public class MyUserDetailsService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		//
-		org.springframework.security.core.userdetails.User userDetails = null ;
+		MyUserDetails userDetails = null ;
 		
 		
 		User user = mapper.findUserByUsername(username);
@@ -55,9 +55,7 @@ public class MyUserDetailsService implements UserDetailsService{
 			list.add(new SimpleGrantedAuthority(role.getrName()));
 		}
 		
-		userDetails = new 
-				org.springframework.security.core.userdetails.User(
-						user.getuName(), user.getuPassword(), list);
+		userDetails = new MyUserDetails(user.getuName(), user.getuPassword(), list, user.getId());
 		
 		return userDetails;
 	}
