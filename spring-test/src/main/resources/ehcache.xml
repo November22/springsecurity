@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<!-- 缓存最大限制时间30 分钟 ，最大缓存个数5000 ， 超出写到磁盘-->
+	<cache name="userinfo" timeToIdleSeconds="1800" maxElementsInMemory="5000" overflowToDisk="true"  ></cache>
+	
+</ehcache>

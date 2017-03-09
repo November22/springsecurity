@@ -6,7 +6,12 @@
   <packaging>war</packaging>
   
   <dependencies>
-  
+  		<!-- ehcache缓存依赖 -->
+		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>2.8.9</version>
+		</dependency>
       	<!-- Spring security的依赖 -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -45,7 +50,11 @@
 		</dependency> -->
 
 		<!-- Spring相关依赖 -->
-		<!-- spring web flow的依赖 -->
+		<dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-context-support</artifactId>
+		  <version>4.1.3.release</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

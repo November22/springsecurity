@@ -96,7 +96,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.and()
 				.rememberMe() //启用remember-me
 				.tokenValiditySeconds(2419200)//cookie过期时间
-				.key("securityKey");
+				.key("securityKey")
+				.and();
 		
 		/*
 		 * remember-me：存储在cookie中token包含用户名、密码、过期时间和一个私钥，
@@ -110,6 +111,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		 super.configure(web);
+		super.configure(web);
 	}
 }
