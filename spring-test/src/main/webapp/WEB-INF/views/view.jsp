@@ -27,9 +27,12 @@
 		具有角色ROLE_iths	
 	</security:authorize>
 	
-	<security:accesscontrollist hasPermission="wahaha" domainObject="principal.authorities">
+	<security:authorize url="/view">
+		具有访问URL--view的权限
+	</security:authorize>
+	<%-- <security:accesscontrollist hasPermission="wahaha" domainObject="principal.authorities">
 		具有哇哈哈权限	
-	</security:accesscontrollist>
+	</security:accesscontrollist> --%>
 	
 	<security:authorize url="/admin">
 		这些内容之会被有权限发送请求到"/admin" URL的用户才可以看到。
