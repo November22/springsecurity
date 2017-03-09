@@ -96,13 +96,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.and()
 				.rememberMe() //启用remember-me
 				.tokenValiditySeconds(2419200)//cookie过期时间
-				.key("securityKey")
-				.and();
+				.key("securityKey");
 		
 		/*
 		 * remember-me：存储在cookie中token包含用户名、密码、过期时间和一个私钥，
 		 * 私钥默认是SpringSecured，自定义为securityKey
 		 * 在前台添加remember-me的label标签
+		 * 
 		 * */
 	}
 	

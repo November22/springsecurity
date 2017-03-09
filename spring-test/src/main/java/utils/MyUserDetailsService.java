@@ -32,31 +32,22 @@ public class MyUserDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		//
+		
 		MyUserDetails userDetails = null ;
 		
-		
 		User user = mapper.findUserByUsername(username);
-		//判断查找的用户是否为空
-		if(user == null || StringUtils.isEmpty(user.getId())){
-			//使用spring security提供的user对象，直接返回null
+		
+		if(user != null && !StringUtils.isEmpty(user.getId())){
+			List<Role> roles = mapper.queryRoleByUid(user.getId());
+			List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+			for (Role role : roles) {
+				list.add(new SimpleGrantedAuthority(role.getrName()));
+			}
+			
+			userDetails = new MyUserDetails(user.getuName(), user.getuPassword(), list, user.getId());
 			return userDetails;
 		}
 		
-		List<Role> roles = mapper.queryRoleByUid(user.getId());
-		//判断roles是否为空
-		if(roles == null || roles.size() == 0){
-			//使用spring security提供的user对象，直接返回null
-			return userDetails;
-		}
-		
-		List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
-		for (Role role : roles) {
-			list.add(new SimpleGrantedAuthority(role.getrName()));
-		}
-		
-		userDetails = new MyUserDetails(user.getuName(), user.getuPassword(), list, user.getId());
-		
-		return userDetails;
+		throw new UsernameNotFoundException(" User: "+username+" not found ");
 	}
 }
